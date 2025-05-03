@@ -2,6 +2,7 @@ package org.mongine.builder;
 
 import org.mongine.MongoDocument;
 import org.mongine.exception.MongoQueryException;
+import org.mongine.utils.Constants;
 
 public class LimitStageBuilder extends BaseStageBuilder {
 
@@ -20,7 +21,7 @@ public class LimitStageBuilder extends BaseStageBuilder {
     if(limit == null) {
       throw new MongoQueryException("Please set limit value.", new Throwable("Limit not set"));
     }
-    return new MongoDocument(StatsSourceConstants.OperatorContstants.LIMIT, this.limit);
+    return new MongoDocument(Constants.OperatorContstants.LIMIT, this.limit);
   }
 
 }

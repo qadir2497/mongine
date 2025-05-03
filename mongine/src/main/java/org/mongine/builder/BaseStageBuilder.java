@@ -3,6 +3,7 @@ package org.mongine.builder;
 import org.mongine.MongoDocument;
 import org.mongine.exception.MongoQueryException;
 import org.mongine.criteria.BaseCriteria;
+import org.mongine.utils.Tuple2;
 
 public class BaseStageBuilder {
   public MongoDocument baseDocument;

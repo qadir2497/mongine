@@ -1,13 +1,22 @@
+/*
 package org.mongine;
 
+import com.mongodb.client.AggregateIterable;
+import com.mongodb.client.MongoCollection;
+import org.bson.Document;
+import org.mongine.utils.Constants;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class MongoStatsCollection implements Aggregator {
 
-  private final static Logger.ALogger logger = Logger.of(MongoStatsCollection.class);
+  private final static Logger logger = LoggerFactory.getLogger(MongoStatsCollection.class);
   private MongoCollection<Document> collection;
   private String shardDbUrl;
 
@@ -21,7 +30,7 @@ public class MongoStatsCollection implements Aggregator {
   public MongoStatsCollection getCollection(String shardDbUrl, Collections collection) {
     logger.info("getCollection:: Getting collection for shard : {}", shardDbUrl);
     if(!MONGODB_URIPREFIX.equals(shardDbUrl)) {
-      this.collection = MongoConnectionManager.getMongoClient(shardDbUrl).getDatabase(StatsSourceConstants.getMongoDBName()).getCollection(collection.value());
+      this.collection = MongoConnectionManager.getMongoClient(shardDbUrl).getDatabase(Constants.getMongoDBName()).getCollection(collection.value());
       this.shardDbUrl = shardDbUrl;
       return this;
     } else {
@@ -36,7 +45,7 @@ public class MongoStatsCollection implements Aggregator {
       Document cmd = new Document(operation, collectionName)
         .append("pipeline", createPipelineFromQueryString(queryString)).append("cursor", new Document());
       logger.debug("executeQueryFromString: Mongo command invoked : {}", cmd.toJson());
-      Document queryResult = MongoConnectionManager.getMongoClient(shardDbUri).getDatabase(StatsSourceConstants.getMongoDBName()).runCommand(cmd);
+      Document queryResult = MongoConnectionManager.getMongoClient(shardDbUri).getDatabase(Constants.getMongoDBName()).runCommand(cmd);
       if (queryResult.containsKey("cursor")) {
         Document cursor = (Document) queryResult.get("cursor");
         if (cursor.containsKey("firstBatch")) {
@@ -62,3 +71,4 @@ public class MongoStatsCollection implements Aggregator {
   }
 
 }
+*/

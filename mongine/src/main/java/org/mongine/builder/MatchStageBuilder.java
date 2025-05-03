@@ -2,6 +2,7 @@ package org.mongine.builder;
 
 import org.mongine.MongoDocument;
 import org.mongine.criteria.BaseCriteria;
+import org.mongine.utils.Constants;
 
 import java.util.HashMap;
 import java.util.List;
@@ -31,7 +32,7 @@ public class MatchStageBuilder extends BaseStageBuilder {
       }
     });
 
-    matchStage = new MongoDocument(StatsSourceConstants.OperatorContstants.MATCH, matchDocument);
+    matchStage = new MongoDocument(Constants.OperatorContstants.MATCH, matchDocument);
   }
 
 

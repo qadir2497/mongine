@@ -2,6 +2,7 @@ package org.mongine.builder;
 
 import org.mongine.MongoDocument;
 import org.mongine.criteria.BaseCriteria;
+import org.mongine.utils.Constants;
 
 import java.util.List;
 
@@ -40,7 +41,7 @@ public class GroupStageBuilder extends BaseStageBuilder {
   }
 
   public MongoDocument build() {
-    return new MongoDocument(StatsSourceConstants.OperatorContstants.GROUP, groupStage);
+    return new MongoDocument(Constants.OperatorContstants.GROUP, groupStage);
   }
 
 }

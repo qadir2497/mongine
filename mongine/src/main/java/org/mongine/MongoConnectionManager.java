@@ -2,10 +2,12 @@ package org.mongine;
 
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class MongoConnectionManager {
 
-  private final static Logger.ALogger logger = Logger.of(MongoConnectionManager.class);
+  private final static Logger logger = LoggerFactory.getLogger(MongoConnectionManager.class);
 
   private static MongoClient mongoClient;
 

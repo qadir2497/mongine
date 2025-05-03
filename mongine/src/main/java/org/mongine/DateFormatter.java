@@ -1,5 +1,8 @@
 package org.mongine;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -7,7 +10,7 @@ import java.util.TimeZone;
 
 public class DateFormatter {
 
-  private final static Logger.ALogger logger = Logger.of(DateFormatter.class);
+  private final static Logger logger = LoggerFactory.getLogger(DateFormatter.class);
 
   public static String getSimpleDateFormat(Date date, Format format) {
     DateFormat dateFormat = new SimpleDateFormat(format.value());
